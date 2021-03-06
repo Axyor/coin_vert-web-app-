@@ -9,7 +9,7 @@ $query =  $db->query("delete  from tools where id= $id_del");
 
 if ($query->execute()) {
 
-    header("Location: page_user_tools.php");
+    header("Location: page_user_outils.php");
 }
 
 ?>

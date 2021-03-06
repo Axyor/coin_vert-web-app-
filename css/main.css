@@ -400,6 +400,7 @@ body header h1 {
   font-weight: lighter;
   font-size: 3.2rem;
   align-self: center;
+  text-align: center;
 }
 body .container {
   display: flex;
@@ -434,9 +435,14 @@ body .container form .form-group input {
   width: 25rem;
   border-radius: 10px;
   border: solid 2px #4FA047;
+  outline-style: none;
 }
 body .container form .form-group input ::placeholder {
   text-align: center;
+}
+body .container form .form-group input:focus {
+  border: 2px solid #E1A725;
+  border-radius: 10px;
 }
 body .container form input[type=submit] {
   padding: 0.5rem 1rem;
@@ -445,6 +451,10 @@ body .container form input[type=submit] {
   border: solid 2px #00959D;
   background-color: #00959D;
   color: #FFFFFF;
+}
+body .container form input[type=submit]:hover {
+  background-color: #E1A725;
+  border: solid 2px #E1A725;
 }
 body .container p .signIn {
   color: #00959D;
@@ -457,7 +467,7 @@ body footer {
   justify-content: space-around;
 }
 body footer img {
-  height: 10rem;
+  max-width: 12rem;
 }
 body footer .idCreator {
   flex-direction: column;
@@ -469,8 +479,8 @@ body footer .idCreator p {
 }
 body footer .idCreator a {
   text-decoration: none;
-  font-size: 1.8rem;
-  color: inherit;
+  font-size: 2rem;
+  color: #394E64;
 }
 
 .info-error {
@@ -486,15 +496,21 @@ body header a {
 }
 .container .new-btn {
   text-decoration: none;
+  align-self: center;
   padding: 0.5rem;
   background-color: #00959D;
   color: #FFFFFF;
   text-align: center;
   font-size: 2rem;
   border-radius: 10px;
+  border: solid #00959D;
   height: 2.5rem;
   margin: 3.5rem;
   width: 16rem;
+}
+.container .new-btn:hover {
+  border: solid #E1A725;
+  background-color: #E1A725;
 }
 .container .btn-category {
   display: flex;
@@ -508,15 +524,24 @@ body header a {
   border: 2px solid #4FA047;
   width: 90%;
 }
+.container .img_outil:hover {
+  border-color: #E1A725;
+}
 .container .img_graine {
   border-radius: 10px;
   border: 2px solid #4FA047;
   width: 90%;
 }
+.container .img_graine:hover {
+  border-color: #E1A725;
+}
 .container .img_plant {
   border-radius: 10px;
   border: 2px solid #4FA047;
   width: 90%;
+}
+.container .img_plant:hover {
+  border-color: #E1A725;
 }
 
 .btns {
@@ -595,6 +620,9 @@ body main .container .item .delete .btn-delete {
   body footer {
     width: 50%;
   }
+  body footer .idCreator a {
+    color: #394E64;
+  }
 }
 @media screen and (min-width: 1301px) {
   body {
@@ -609,8 +637,17 @@ body main .container .item .delete .btn-delete {
   body .btns {
     width: 20%;
   }
+  body .btns a:hover {
+    color: #394E64;
+  }
   body footer {
     width: 20%;
+  }
+  body footer .idCreator a {
+    color: inherit;
+  }
+  body footer a:hover {
+    color: #394E64;
   }
 }
 

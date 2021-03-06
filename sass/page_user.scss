@@ -2,15 +2,22 @@
     display: flex;
     .new-btn {
         text-decoration: none;
+        align-self: center;
         padding: 0.5rem;
         background-color: $btn-primaryColor;
         color: $secondaryColor;
         text-align: center;
         font-size: 2rem;
         border-radius: $borderRadius;
+        border: solid  $btn-primaryColor;
         height: 2.5rem;
         margin: 3.5rem;
         width: 16rem;
+    }
+    .new-btn:hover{
+        border: solid  $btn-secondaryColor;
+        background-color: $btn-secondaryColor ;
+        
     }
 
     .btn-category {
@@ -24,19 +31,25 @@
         border-radius: $borderRadius;
         border: 2px solid $primaryColor;
         width: 90%;
-        
+    }
+    .img_outil:hover{
+        border-color: $btn-secondaryColor;
     }
     .img_graine {
         border-radius: $borderRadius;
         border: 2px solid $primaryColor;
-        width: 90%;
-        
+        width: 90%;   
+    }
+    .img_graine:hover{
+        border-color: $btn-secondaryColor;
     }
     .img_plant {
         border-radius: $borderRadius;
         border: 2px solid $primaryColor;
-        width: 90%;
-        
+        width: 90%;   
+    }
+    .img_plant:hover{
+        border-color: $btn-secondaryColor;
     }
 }
 .btns {

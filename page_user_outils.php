@@ -51,7 +51,7 @@ if (isset($_SESSION["user"])) {
 
                             <p>Date d'ajout : <span><?= $date ?></span></p>
                         </div>
-                        <form class="delete" method="post" action="delete_bd_graines.php">
+                        <form class="delete" method="post" action="delete_bd_tools.php">
                             <input class="btn-hidden" name="id" value="<?= $id ?>">
                             <input type="submit" class="btn-delete" name="valider" value="X">
 

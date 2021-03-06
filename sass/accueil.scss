@@ -17,6 +17,7 @@ body {
             font-weight: lighter;
             font-size: 3.2rem;
             align-self: center;
+            text-align: center;
         }
     }
     .container {
@@ -49,10 +50,17 @@ body {
                     width: 25rem;
                     border-radius: $borderRadius;
                     border: solid 2px $primaryColor;
+                    outline-style: none;
                     ::placeholder {
                         text-align: center;
                     }
+                    
                 }
+                input:focus{
+                        border: 2px solid $btn-secondaryColor;
+                        border-radius: $borderRadius;
+                        
+                    }
             }
             input[type="submit"] {
                 padding: 0.5rem 1rem;
@@ -61,6 +69,11 @@ body {
                 border: solid 2px $btn-primaryColor;
                 background-color: $btn-primaryColor;
                 color: $secondaryColor;
+                
+            }
+            input[type="submit"]:hover{
+                background-color: $btn-secondaryColor;
+                border: solid 2px $btn-secondaryColor;
             }
         }
         p {
@@ -79,7 +92,7 @@ body {
         align-items: center;
         justify-content:space-around;
         img {
-            height: 10rem;
+            max-width: 12rem;
         }
         .idCreator {
             flex-direction: column;
@@ -91,9 +104,10 @@ body {
             }
             a {
                 text-decoration: none;
-                font-size: 1.8rem;
-                color: inherit;
+                font-size: 2rem;
+                color: $btn-deleteColor;
             }
+            
         }
     }
 }

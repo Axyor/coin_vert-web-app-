@@ -13,6 +13,11 @@
         }
         footer {
             width: 50%;
+            .idCreator {
+                a {
+                    color: $btn-deleteColor;
+                }
+            }
         }
     }
 }
@@ -28,9 +33,21 @@
         }
         .btns {
             width: 20%;
+            
+            a:hover{
+                color: $btn-deleteColor;
+            }
         }
         footer {
             width: 20%;
+            .idCreator {
+                a {
+                    color: inherit;
+                }
+            }
+            a:hover {
+                color: $btn-deleteColor;
+            }
         }
     }
 }
