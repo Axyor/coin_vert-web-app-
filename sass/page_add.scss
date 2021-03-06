@@ -1,0 +1,55 @@
+body {
+    main {
+        .container {
+            .item {
+                display: flex;
+                flex-direction: column;
+                
+                .item-img {
+                    align-self: center;
+                    img {
+                        max-height: 20rem;
+                        max-width: 20rem;
+                        border-radius: $borderRadius;
+                        border: 2px solid $primaryColor;
+                    }
+                }
+                .item-description {
+                    align-self: center;
+                    display: flex;
+                    flex-wrap: wrap;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 1rem;
+                    font-size: 1.8rem;
+                    p {
+                        margin: 0;
+                        span {
+                            color: $btn-primaryColor;
+                            font-weight: bold;
+                        }
+                    }
+                }
+                .delete {
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0.5rem;
+                    justify-content: flex-end;
+                    
+                    .btn-hidden{
+                        display: none;
+                    }
+                    
+                   
+                    .btn-delete {
+                       width: 10%;
+                       padding: 0;
+                       background-color:$btn-secondaryColor;
+                        border: 2px solid $btn-secondaryColor;
+                       
+                    }
+                }
+            }
+        }
+    }
+}

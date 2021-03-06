@@ -1,0 +1,55 @@
+.container {
+    display: flex;
+    .new-btn {
+        text-decoration: none;
+        padding: 0.5rem;
+        background-color: $btn-primaryColor;
+        color: $secondaryColor;
+        text-align: center;
+        font-size: 2rem;
+        border-radius: $borderRadius;
+        height: 2.5rem;
+        margin: 3.5rem;
+        width: 16rem;
+    }
+
+    .btn-category {
+        display: flex;
+        margin: 1rem 0;
+        align-self: center;
+        justify-content: center;
+        width: 90%;
+    }
+    .img_outil {
+        border-radius: $borderRadius;
+        border: 2px solid $primaryColor;
+        width: 90%;
+        
+    }
+    .img_graine {
+        border-radius: $borderRadius;
+        border: 2px solid $primaryColor;
+        width: 90%;
+        
+    }
+    .img_plant {
+        border-radius: $borderRadius;
+        border: 2px solid $primaryColor;
+        width: 90%;
+        
+    }
+}
+.btns {
+    display: flex;
+    justify-content: space-between;
+    font-family: $textFont;
+    font-size: 1.6rem;
+    padding: 0 0.5rem;
+    .btn-back{
+        color: $secondaryColor;
+    }
+    .btn-logout{
+        color: $secondaryColor;
+  
+    }
+}

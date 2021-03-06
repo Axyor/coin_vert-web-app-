@@ -1,0 +1,36 @@
+@media screen and (min-width: 751px) and (max-width: 1300px) {
+    body {
+        align-items: center;
+        justify-content: center;
+        header {
+            width: 50%;
+        }
+        main {
+            width: 50%;
+        }
+        .btns {
+            width: 50%;
+        }
+        footer {
+            width: 50%;
+        }
+    }
+}
+
+@media screen and (min-width: 1301px) {
+    body {
+        align-items: center;
+        header {
+            width: 20%;
+        }
+        main {
+            width: 20%;
+        }
+        .btns {
+            width: 20%;
+        }
+        footer {
+            width: 20%;
+        }
+    }
+}
