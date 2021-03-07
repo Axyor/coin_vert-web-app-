@@ -11,7 +11,7 @@ Présentation du "Petit coin Vert" : "Comme une grelinette, c’est un outil sup
 -> Ajout et suppression d'éléments dans des tables (outils, graines et plants).
 -> Affichage dynamique de ces éléments dans une interface utilisateur
 
-------------- Evolution envisagées -------------
+------------- Evolutions envisagées -------------
 
 -> Mise en place d'un système de recherche sur les outils/graines/plants.
 -> Mise en place d'une possibilité d'édition des éléments côté utilisateur.
