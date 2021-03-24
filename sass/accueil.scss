@@ -54,43 +54,47 @@ body {
                     ::placeholder {
                         text-align: center;
                     }
-                    
                 }
-                input:focus{
-                        border: 2px solid $btn-secondaryColor;
-                        border-radius: $borderRadius;
-                        
-                    }
+                input:focus {
+                    border: 2px solid $btn-secondaryColor;
+                    border-radius: $borderRadius;
+                }
             }
             input[type="submit"] {
+                margin: 1rem 0;
                 padding: 0.5rem 1rem;
                 border-radius: $borderRadius;
                 border-color: inherit;
                 border: solid 2px $btn-primaryColor;
                 background-color: $btn-primaryColor;
                 color: $secondaryColor;
-                
             }
-            input[type="submit"]:hover{
+            input[type="submit"]:hover {
                 background-color: $btn-secondaryColor;
                 border: solid 2px $btn-secondaryColor;
             }
+            .p-reset{
+                
+                a{
+                    text-decoration: underline;
+                    color: $btn-primaryColor;
+                    
+                }
+            }
         }
         p {
-            
             .signIn {
                 color: $btn-primaryColor;
                 margin: 0;
-                
             }
         }
     }
     footer {
         padding: 1rem;
-        
+
         display: flex;
         align-items: center;
-        justify-content:space-around;
+        justify-content: space-around;
         img {
             max-width: 12rem;
         }
@@ -100,20 +104,16 @@ body {
             color: $secondaryColor;
             p {
                 font-size: 1.6rem;
-                
             }
             a {
                 text-decoration: none;
                 font-size: 2rem;
                 color: $btn-deleteColor;
             }
-            
         }
     }
 }
 
-.info-error{
+.info-error {
     color: red;
 }
-
-

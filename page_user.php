@@ -1,6 +1,7 @@
 <?php
 // Démarrage du système de session
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">

@@ -1,6 +1,11 @@
 <?php
 // Démarrage du système de session
 session_start();
+if($_SESSION["user"]){
+
+}else{
+    header("Location: ./accueil.php");
+}
 
 if (!empty($_POST)) {
     $variete_seed = trim(strip_tags($_POST["variete_seed"]));
@@ -36,6 +41,17 @@ if (!empty($_POST)) {
 
 
         if ($query->execute()) {
+
+            $user_id=$_SESSION["id"];
+            $seed_id = $db->lastInsertId();
+
+            $query = $db->prepare("INSERT INTO users_seeds (user_id, seed_id) Values(:user_id, :seed_id)");
+
+            $query->bindParam(":user_id", $user_id);
+            $query->bindParam(":seed_id", $seed_id);
+            
+
+            $query->execute();
 
             header("Location: page_user_graines.php");
         }

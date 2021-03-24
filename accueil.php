@@ -1,19 +1,20 @@
 <?php
 $message = "";
-if(!empty($_POST)) {
+if (!empty($_POST)) {
     $email = trim(strip_tags($_POST["email"]));
     $password = trim(strip_tags($_POST["password"]));
 
     $db = new PDO("mysql:host=localhost;dbname=coin_vert", "root", "");
 
-    $query = $db->prepare("SELECT firstname, email, password FROM users WHERE email = :email");
+    $query = $db->prepare("SELECT * FROM users WHERE email = :email");
     $query->bindParam(":email", $email);
     $query->execute();
     $result = $query->fetch();
 
-    if(!empty($result) && password_verify($password, $result["password"])) {
+    if (!empty($result) && password_verify($password, $result["password"])) {
         session_start();
         $_SESSION["user"] = $result["firstname"];
+        $_SESSION["id"] = $result["id"];
         $_SESSION["user_ip"] = $_SERVER["REMOTE_ADDR"];
         header("Location: page_user.php");
     } else {
@@ -56,22 +57,22 @@ if(!empty($_POST)) {
                 <div class="form-group">
                     <input type="password" name="password" id="inputPassword" placeholder="Mot de passe">
                 </div>
-
+                <p class="p-reset"><a href="">Mot de passe oublié ?</a></p>
                 <input type="submit" value="Se connecter">
             </form>
 
             <p>Sinon prépares tes outils et viens t’inscrire <a class="signIn" href="./create_account.php">ici</a> .</p>
 
         </div>
-</main>
-        <footer>
-            <img src="./img/site_img/brouette.png" alt="">
-            <div class="idCreator">
-                <p>Projet par</p>
-                <a href="https://alexandre-roy.web.app/">Alexandre Roy</a>
-            </div>
-        </footer>
-    
+    </main>
+    <footer>
+        <img src="./img/site_img/brouette.png" alt="">
+        <div class="idCreator">
+            <p>Projet par</p>
+            <a href="https://alexandre-roy.web.app/">Alexandre Roy</a>
+        </div>
+    </footer>
+
     <script src="js/main.js"></script>
 </body>
 

@@ -1,8 +1,9 @@
 <?php
 // Démarrage du système de session
 session_start();
-
-
+if(!isset($_SESSION["user"])){
+    header("Location: ./accueil.php");
+    }
 
 if (!empty($_POST)) {
     $name_tool = trim(strip_tags($_POST["name_tool"]));
@@ -34,20 +35,18 @@ if (!empty($_POST)) {
  
         
         if ($query->execute()) {
-            // $dsn = "mysql:host=localhost;dbname=coin_vert";
-            // $db = new PDO($dsn, "root", "");
-            // $query=  $db->query("select id from tools order by id desc 
-            // limit 1") ;
+            $user_id=$_SESSION["id"];
+            $tool_id = $db->lastInsertId();
 
-            // $idTool= $query->fetchAll();
-            // $idTool = (int) $idTool;
+            $query = $db->prepare("INSERT INTO users_tools (user_id, tool_id) Values(:user_id, :tool_id)");
+
+            $query->bindParam(":user_id", $user_id);
+            $query->bindParam(":tool_id", $tool_id);
+            
+
+            $query->execute();
 
             
-            // $_SESSION["id"] = $idUser;
-
-            // $query = $db->prepare("INSERT INTO users_tools_seeds_plants (user_id, tool_id) VALUES ($idUser, $idTool)");
-            // $query->bindParam($idUser, $idUser);
-            // $query->bindParam($idTool, $idTool);
 
             header("Location: page_user_outils.php");
         }

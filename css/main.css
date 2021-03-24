@@ -445,6 +445,7 @@ body .container form .form-group input:focus {
   border-radius: 10px;
 }
 body .container form input[type=submit] {
+  margin: 1rem 0;
   padding: 0.5rem 1rem;
   border-radius: 10px;
   border-color: inherit;
@@ -455,6 +456,10 @@ body .container form input[type=submit] {
 body .container form input[type=submit]:hover {
   background-color: #E1A725;
   border: solid 2px #E1A725;
+}
+body .container form .p-reset a {
+  text-decoration: underline;
+  color: #00959D;
 }
 body .container p .signIn {
   color: #00959D;

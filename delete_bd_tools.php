@@ -1,10 +1,14 @@
 <?php
-
+if(!isset($_SESSION["user"])){
+    header("Location: ./accueil.php");
+    }
 $id_del=$_POST["id"];
 
-$dsn = "mysql:host=localhost;dbname=coin_vert";
-$db = new PDO($dsn, "root", "");
-$query =  $db->query("delete  from tools where id= $id_del");
+
+$db = new PDO("mysql:host=localhost;dbname=coin_vert", "root", "");
+$query =  $db->prepare("delete  from tools where id= :id");
+$query->bindParam(":id",$id_del);
+
 
 
 if ($query->execute()) {

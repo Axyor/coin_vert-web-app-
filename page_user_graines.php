@@ -1,7 +1,9 @@
 <?php
 // Démarrage du système de session
 session_start();
-
+if(!isset($_SESSION["user"])){
+    header("Location: ./accueil.php");
+    }
 $dsn = "mysql:host=localhost;dbname=coin_vert";
 $db = new PDO($dsn, "root", "");
 $query =  $db->query("select * from seeds order by id");

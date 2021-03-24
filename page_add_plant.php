@@ -1,7 +1,11 @@
 <?php
 // Démarrage du système de session
 session_start();
+if(!isset($_SESSION["user"])){
+header("Location: ./accueil.php");
+}
 
+var_dump($_SESSION["id"]);
 
 if (!empty($_POST)) {
     $variete_plant = trim(strip_tags($_POST["variete_plant"]));
@@ -9,7 +13,7 @@ if (!empty($_POST)) {
     $type_plant = trim(strip_tags($_POST["type_plant"]));
     $date_plant = trim(strip_tags($_POST["date_plant"]));
     $image_plant = trim(strip_tags($_POST["image_plant"]));
-    
+
     $errors = [];
 
     if (empty($variete_plant)) {
@@ -33,16 +37,25 @@ if (!empty($_POST)) {
         $query->bindParam(":type_plant", $type_plant);
         $query->bindParam(":date_plant", $date_plant);
         $query->bindParam(":image_plant", $image_plant);
-        
- 
-        
+
+
+
         if ($query->execute()) {
-          
+            $user_id=$_SESSION["id"];
+            $plant_id = $db->lastInsertId();
+
+            $query = $db->prepare("INSERT INTO users_plants (user_id, plant_id) Values(:user_id, :plant_id)");
+
+            $query->bindParam(":user_id", $user_id);
+            $query->bindParam(":plant_id", $plant_id);
+            
+
+            $query->execute();
+
             header("Location: page_user_plants.php");
+        
         }
     }
-    
-
 }
 
 
@@ -71,7 +84,7 @@ if (!empty($_POST)) {
         <div class="container">
             <form action="" method="post">
                 <div class="form-group">
-                <label for="inputVariete_plant">Variété :</label> </br>
+                    <label for="inputVariete_plant">Variété :</label> </br>
                     <input type="text" name="variete_plant" id="inputVariete_plant" placeholder="">
                     <?php
                     if (isset($errors["variete_plant"])) {
@@ -81,24 +94,24 @@ if (!empty($_POST)) {
                 </div>
 
                 <div class="form-group">
-                <label for="inputType_plant">Type :</label> </br>
+                    <label for="inputType_plant">Type :</label> </br>
                     <input type="text" name="type_plant" id="inputType_plant" placeholder="">
                 </div>
 
                 <div class="form-group">
-                <label for="inputPosition_plant">Position :</label> </br>
+                    <label for="inputPosition_plant">Position :</label> </br>
                     <input type="text" name="position_plant" id="inputPosition_plant" placeholder="">
                 </div>
 
                 <div class="form-group">
-                <label for="inputDate_plant">Date d'ajout :</label></br>
+                    <label for="inputDate_plant">Date d'ajout :</label></br>
                     <input type="date" name="date_plant" id="inputDate_plant" placeholder="">
                 </div>
 
-                
+
 
                 <div class="form-group">
-                <label for="inputImage_plant">Url de votre image :</label></br>
+                    <label for="inputImage_plant">Url de votre image :</label></br>
                     <input type="text" name="image_plant" id="inputImage_plant" placeholder="">
                     <?php
                     if (isset($errors["image_plant"])) {
