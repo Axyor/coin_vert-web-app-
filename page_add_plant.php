@@ -5,7 +5,6 @@ if(!isset($_SESSION["user"])){
 header("Location: ./accueil.php");
 }
 
-var_dump($_SESSION["id"]);
 
 if (!empty($_POST)) {
     $variete_plant = trim(strip_tags($_POST["variete_plant"]));

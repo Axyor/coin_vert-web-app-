@@ -2,12 +2,19 @@
 // Démarrage du système de session
 session_start();
 
-if(!isset($_SESSION["user"])){
+if (!isset($_SESSION["user"])) {
     header("Location: ./accueil.php");
-    }
+}
+$user_id = $_SESSION["id"];
 $dsn = "mysql:host=localhost;dbname=coin_vert";
 $db = new PDO($dsn, "root", "");
-$query =  $db->query("select * from tools order by id");
+$query =  $db->query("SELECT users.id, users.firstname, users_tools.user_id, users_tools.tool_id, tools.id, tools.name_tool, tools.date_tool , tools.image_tool  
+FROM tools 
+INNER JOIN users_tools
+ON tools.id = users_tools.tool_id
+INNER JOIN users
+ON users_tools.user_id = users.id
+where users.id = $user_id;");
 
 $tools = $query->fetchAll();
 
@@ -44,7 +51,7 @@ if (isset($_SESSION["user"])) {
                         $image = $tool["image_tool"];
                         $name = $tool["name_tool"];
                         $date = $tool["date_tool"];
-                        $id = $tool["id"];
+                        $id = $tool["tool_id"];
                     ?>
                         <div class="item-img">
                             <img src="<?= $image ?>" alt="">

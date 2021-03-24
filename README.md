@@ -1,4 +1,4 @@
-# coin_vert-web-app-
+# coin_vert-webApp
 
 ------------- Création d'une web-app de stockage de données en db avec les langages PHP HTML/CSS. Avec une utilisation de SASS pour la gestion des styles.----------------------
 
@@ -9,7 +9,7 @@ Présentation du "Petit coin Vert" : "Comme une grelinette, c’est un outil sup
 
 -> Mise en plasse de compte client avec appel à une table users dans une db.
 -> Ajout et suppression d'éléments dans des tables (outils, graines et plants).
--> Affichage dynamique de ces éléments dans une interface utilisateur
+-> Affichage dynamique de ces éléments dans une interface utilisateur.
 
 ------------- Evolutions envisagées -------------
 

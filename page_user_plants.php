@@ -4,9 +4,16 @@ session_start();
 if(!isset($_SESSION["user"])){
     header("Location: ./accueil.php");
     }
+$user_id = $_SESSION["id"];
 $dsn = "mysql:host=localhost;dbname=coin_vert";
 $db = new PDO($dsn, "root", "");
-$query =  $db->query("select * from plants order by id");
+$query =  $db->query("SELECT users.id, users.firstname, users_plants.user_id, users_plants.plant_id, plants.id, plants.variete_plant, plants.position_plant , plants.type_plant , plants.date_plant , plants.image_plant
+FROM plants 
+INNER JOIN users_plants
+ON plants.id = users_plants.plant_id
+INNER JOIN users
+ON users_plants.user_id = users.id
+where users.id = $user_id;");
 
 $plants = $query->fetchAll();
 ?>
@@ -44,7 +51,7 @@ if (isset($_SESSION["user"])) {
                         $position = $plant["position_plant"];
                         $type = $plant["type_plant"];
                         $date = $plant["date_plant"];
-                        $id = $plant["id"];
+                        $id = $plant["plant_id"];
                     ?>
                         <div class="item-img">
                             <img src="<?= $image ?>" alt="">

@@ -1,12 +1,20 @@
 <?php
 // Démarrage du système de session
 session_start();
-if(!isset($_SESSION["user"])){
+if (!isset($_SESSION["user"])) {
     header("Location: ./accueil.php");
-    }
+}
+$user_id = $_SESSION["id"];
 $dsn = "mysql:host=localhost;dbname=coin_vert";
 $db = new PDO($dsn, "root", "");
-$query =  $db->query("select * from seeds order by id");
+$query =  $db->query("SELECT users.id, users.firstname, users_seeds.user_id, users_seeds.seed_id, seeds.id, seeds.variete_seed, seeds.quantity_seed , seeds.type_seed , seeds.date_seed , seeds.image_seed 
+FROM seeds 
+INNER JOIN users_seeds
+ON seeds.id = users_seeds.seed_id
+INNER JOIN users
+ON users_seeds.user_id = users.id
+where users.id = $user_id;");
+
 
 $seeds = $query->fetchAll();
 
@@ -44,24 +52,24 @@ if (isset($_SESSION["user"])) {
                         $variete = $seed["variete_seed"];
                         $quantity = $seed["quantity_seed"];
                         $type = $seed["type_seed"];
-                        $date=$seed["date_seed"];
-                        $id = $seed["id"];
+                        $date = $seed["date_seed"];
+                        $id = $seed["seed_id"];
                     ?>
                         <div class="item-img">
                             <img src="<?= $image ?>" alt="">
                         </div>
                         <div class="item-description">
                             <p>Variété : <span><?= $variete ?></span></p>
-                            
+
                             <p>Quantité : <span><?= $quantity ?></span></p>
-                            
+
                             <p>Type : <span><?= $type ?></span></p>
-                            
+
                             <p>Date d'ajout : <span><?= $date ?></span></p>
-                            
+
                         </div>
                         <form class="delete" method="post" action="delete_bd_graines.php">
-                            <input class="btn-hidden"  name="id" value="<?= $id ?>">
+                            <input class="btn-hidden" name="id" value="<?= $id ?>">
                             <input type="submit" class="btn-delete" name="valider" value="X">
 
                         </form>
