@@ -473,6 +473,7 @@ body footer {
 }
 body footer img {
   max-width: 12rem;
+  max-height: 12rem;
 }
 body footer .idCreator {
   flex-direction: column;
